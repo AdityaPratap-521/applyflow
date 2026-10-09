@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <rect width="1000" height="600" fill="#f8fafc"/>
+  
+  <!-- Header Navbar -->
+  <rect width="1000" height="64" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="24" y="16" width="32" height="32" rx="8" fill="#0284c7"/>
+  <text x="68" y="38" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#0f172a">ApplyFlow</text>
+  <rect x="175" y="22" width="40" height="20" rx="4" fill="#e0f2fe"/>
+  <text x="183" y="36" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#0369a1">v1.0</text>
+  <rect x="830" y="16" width="146" height="32" rx="6" fill="#0284c7"/>
+  <text x="850" y="36" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#ffffff">+ Add Application</text>
+
+  <!-- Metric Stat Cards -->
+  <g transform="translate(24, 88)">
+    <!-- Card 1 -->
+    <rect x="0" y="0" width="176" height="90" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="16" y="28" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#64748b">TOTAL APPLICATIONS</text>
+    <text x="16" y="65" font-family="system-ui, sans-serif" font-size="28" font-weight="bold" fill="#0f172a">12</text>
+    <circle cx="148" cy="30" r="14" fill="#3b82f6"/>
+    
+    <!-- Card 2 -->
+    <rect x="192" y="0" width="176" height="90" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="208" y="28" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#64748b">APPLIED</text>
+    <text x="208" y="65" font-family="system-ui, sans-serif" font-size="28" font-weight="bold" fill="#0f172a">5</text>
+    <circle cx="340" cy="30" r="14" fill="#0284c7"/>
+
+    <!-- Card 3 -->
+    <rect x="384" y="0" width="176" height="90" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="400" y="28" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#64748b">INTERVIEWS</text>
+    <text x="400" y="65" font-family="system-ui, sans-serif" font-size="28" font-weight="bold" fill="#0f172a">3</text>
+    <circle cx="532" cy="30" r="14" fill="#f59e0b"/>
+
+    <!-- Card 4 -->
+    <rect x="576" y="0" width="176" height="90" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="592" y="28" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#64748b">OFFERS</text>
+    <text x="592" y="65" font-family="system-ui, sans-serif" font-size="28" font-weight="bold" fill="#0f172a">2</text>
+    <circle cx="724" cy="30" r="14" fill="#10b981"/>
+
+    <!-- Card 5 -->
+    <rect x="768" y="0" width="184" height="90" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="784" y="28" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#64748b">REJECTED</text>
+    <text x="784" y="65" font-family="system-ui, sans-serif" font-size="28" font-weight="bold" fill="#0f172a">2</text>
+    <circle cx="924" cy="30" r="14" fill="#f43f5e"/>
+  </g>
+
+  <!-- Search & Controls Bar -->
+  <rect x="24" y="198" width="952" height="56" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="40" y="210" width="400" height="32" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="56" y="231" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">Search by company, job title, or location...</text>
+  
+  <rect x="456" y="210" width="120" height="32" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="472" y="231" font-family="system-ui, sans-serif" font-size="12" fill="#334155">All Statuses ▼</text>
+
+  <rect x="588" y="210" width="130" height="32" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="604" y="231" font-family="system-ui, sans-serif" font-size="12" fill="#334155">All Work Modes ▼</text>
+
+  <!-- Table View Container -->
+  <rect x="24" y="270" width="952" height="300" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Table Header -->
+  <rect x="24" y="270" width="952" height="44" fill="#f8fafc" rx="12"/>
+  <text x="48" y="297" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#64748b">COMPANY &amp; ROLE</text>
+  <text x="320" y="297" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#64748b">STATUS</text>
+  <text x="480" y="297" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#64748b">WORK MODE</text>
+  <text x="640" y="297" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#64748b">APPLIED DATE</text>
+  <text x="840" y="297" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#64748b">ACTIONS</text>
+
+  <!-- Row 1 -->
+  <line x1="24" y1="314" x2="976" y2="314" stroke="#f1f5f9" stroke-width="1"/>
+  <text x="48" y="342" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#0f172a">Stripe</text>
+  <text x="48" y="360" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Senior Backend Engineer</text>
+  <rect x="320" y="335" width="84" height="24" rx="12" fill="#fef3c7"/>
+  <text x="336" y="351" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#92400e">Interview</text>
+  <rect x="480" y="335" width="68" height="22" rx="4" fill="#f3e8ff"/>
+  <text x="492" y="350" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#6b21a8">Remote</text>
+  <text x="640" y="348" font-family="system-ui, sans-serif" font-size="13" fill="#334155">Oct 01, 2026</text>
+
+  <!-- Row 2 -->
+  <line x1="24" y1="384" x2="976" y2="384" stroke="#f1f5f9" stroke-width="1"/>
+  <text x="48" y="412" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#0f172a">Google</text>
+  <text x="48" y="430" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Software Engineer II</text>
+  <rect x="320" y="405" width="70" height="24" rx="12" fill="#d1fae5"/>
+  <text x="336" y="421" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#065f46">Offer</text>
+  <rect x="480" y="405" width="64" height="22" rx="4" fill="#ccfbf1"/>
+  <text x="492" y="420" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#115e59">Hybrid</text>
+  <text x="640" y="418" font-family="system-ui, sans-serif" font-size="13" fill="#334155">Sep 28, 2026</text>
+</svg>

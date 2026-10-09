@@ -18,7 +18,7 @@ export const applicationSchema = z.object({
   }).trim().min(1, 'Job title cannot be empty').max(100, 'Job title must not exceed 100 characters'),
   
   jobUrl: z.union([
-    z.string().url('Must be a valid HTTP or HTTPS URL'),
+    z.string().trim().regex(/^https?:\/\/.+/, 'Must be a valid HTTP or HTTPS URL'),
     z.literal(''),
     z.null(),
   ]).optional().transform(val => val === '' ? null : val),

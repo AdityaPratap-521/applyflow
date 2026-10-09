@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="100%" height="100%">
+  <rect width="800" height="550" fill="rgba(15,23,42,0.6)"/>
+  
+  <!-- Modal Card -->
+  <rect x="150" y="50" width="500" height="450" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Header -->
+  <rect x="150" y="50" width="500" height="80" rx="16" fill="#f8fafc"/>
+  <rect x="178" y="70" width="60" height="20" rx="10" fill="#fef3c7"/>
+  <text x="188" y="84" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#92400e">Interview</text>
+  <rect x="244" y="70" width="56" height="20" rx="10" fill="#f3e8ff"/>
+  <text x="254" y="84" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#6b21a8">Remote</text>
+  
+  <text x="178" y="112" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#0f172a">Stripe</text>
+  <text x="248" y="112" font-family="system-ui, sans-serif" font-size="15" fill="#64748b">— Senior Backend Engineer</text>
+  <text x="615" y="74" font-family="system-ui, sans-serif" font-size="20" fill="#94a3b8">✕</text>
+  <line x1="150" y1="130" x2="650" y2="130" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Body -->
+  <!-- Timeline Box -->
+  <rect x="178" y="150" width="444" height="90" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="194" y="174" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#64748b">APPLICATION TIMELINE</text>
+  
+  <text x="194" y="200" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Applied Date:</text>
+  <text x="194" y="218" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#0f172a">Oct 01, 2026</text>
+
+  <text x="360" y="200" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Interview Scheduled:</text>
+  <rect x="360" y="206" width="104" height="22" rx="4" fill="#fef3c7"/>
+  <text x="368" y="221" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#92400e">Oct 15, 2026</text>
+
+  <!-- Recruiter Contact Box -->
+  <rect x="178" y="254" width="444" height="80" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="194" y="278" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#64748b">RECRUITER CONTACT INFORMATION</text>
+  <text x="194" y="302" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#0f172a">👤 Jane Doe</text>
+  <text x="320" y="302" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#0284c7">✉️ jane.doe@stripe.com</text>
+
+  <!-- Notes -->
+  <text x="178" y="356" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#64748b">NOTES &amp; CONTEXT</text>
+  <rect x="178" y="366" width="444" height="60" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="194" y="390" font-family="system-ui, sans-serif" font-size="12" fill="#334155">System design &amp; architecture round scheduled. Preparing distributed cache topics.</text>
+
+  <!-- Footer -->
+  <line x1="150" y1="440" x2="650" y2="440" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="178" y="452" width="130" height="32" rx="8" fill="#fef3c7" stroke="#fde68a" stroke-width="1"/>
+  <text x="194" y="473" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#92400e">✏️ Edit Application</text>
+  
+  <rect x="570" y="452" width="52" height="32" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="584" y="473" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#334155">Close</text>
+</svg>

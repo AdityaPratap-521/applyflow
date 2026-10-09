@@ -47,6 +47,20 @@ test('POST /api/applications creates an application with valid data', async () =
   assert.ok(res.body.data._id);
 });
 
+test('POST /api/applications fails validation with non-HTTP/HTTPS jobUrl scheme', async () => {
+  const payload = {
+    company: 'Test Co',
+    jobTitle: 'Developer',
+    jobUrl: 'ftp://invalid-scheme.com/job',
+  };
+
+  const res = await request(app).post('/api/applications').send(payload);
+
+  assert.equal(res.status, 400);
+  assert.equal(res.body.success, false);
+  assert.ok(res.body.errors.some((e) => e.field === 'jobUrl'));
+});
+
 test('POST /api/applications fails validation when required fields are missing', async () => {
   const payload = {
     location: 'San Francisco',

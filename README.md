@@ -238,13 +238,14 @@ curl -X POST http://localhost:5000/api/applications \
 
 ## UI Screenshots & Visual Guide
 
-The application interface is structured as follows:
+![Dashboard Overview](docs/screenshots/dashboard_overview.svg)
+*Figure 1: ApplyFlow Pipeline Dashboard displaying status metric cards, search/filter bar, and application table view.*
 
-1. **Dashboard Overview**: Header with status health indicator, action buttons (Add Application, Export CSV), metric stat cards (Total, Applied, Interview, Offer, Rejected), overdue follow-up alerts, and search/filter bar.
-2. **Add / Edit Application Modal**: Input form with validation for company, job title, job URL, work mode, employment type, key dates (application date, deadline, interview date, follow-up date), recruiter contact info, and notes.
-3. **Application Detail Modal**: Summary modal presenting timeline breakdown, recruiter `mailto:` links, original job posting link, and notes.
+![Add Application Modal](docs/screenshots/add_application_modal.svg)
+*Figure 2: Add/Edit Job Application Modal form with status dropdowns, work mode selectors, dates, and recruiter contact fields.*
 
-> *Note: To generate visual PNG screenshots for documentation, run the application locally (`npm run dev`), capture browser screenshots of the dashboard and modal views, and save them into `docs/screenshots/`.*
+![Application Detail View](docs/screenshots/application_detail_modal.svg)
+*Figure 3: Application Detailed View presenting timeline breakdown, recruiter contacts, notes, and action buttons.*
 
 ---
 
@@ -268,23 +269,34 @@ The application interface is structured as follows:
 
 ## GitHub Repository Publication Instructions
 
-To publish this project to your public GitHub profile:
-
+### Scenario A: First-time setup on a fresh clone
 ```bash
-# 1. Initialize Git repository if not initialized
+# 1. Initialize Git repository
 git init
 
-# 2. Verify git ignore ignores .env and node_modules
-git status
-
-# 3. Add files and commit
+# 2. Add files and make initial commit
 git add .
 git commit -m "feat: initial commit of ApplyFlow job application tracker"
 
-# 4. Add your GitHub remote repository URL
+# 3. Add remote and push
 git remote add origin https://github.com/YOUR_USERNAME/applyflow.git
+git branch -M main
+git push -u origin main
+```
 
-# 5. Push to main branch
+### Scenario B: Existing repository with remote configured
+If Git is already initialized or a remote `origin` exists:
+
+```bash
+# 1. Check existing remote configuration
+git remote -v
+
+# 2. Update remote URL if needed
+git remote set-url origin https://github.com/YOUR_USERNAME/applyflow.git
+
+# 3. Commit recent changes and push
+git add .
+git commit -m "feat: update ApplyFlow application"
 git branch -M main
 git push -u origin main
 ```
@@ -299,8 +311,8 @@ git push -u origin main
 
 | Date | Task Prompt Asked | What AI Tool Suggested | Developer Changes / Rejections | How Verified |
 |---|---|---|---|---|
-| 2026-10-09 | Review input validation & security edge cases | Zod validation for body/query params, Helmet security headers, rate limiting, and regex escaping for search query `q`. | Added `escapeRegex()` metacharacter escaping and max 100 character limit on search query `q` to prevent ReDoS attacks. | Executed `npm test` (10 server tests passed including regex escaping test). |
+| 2026-10-09 | Review input validation, URL scheme & security edge cases | Zod validation for body/query params, Helmet security headers, rate limiting, and regex escaping for search query `q`. | Added `escapeRegex()` metacharacter escaping, max 100 character limit on `q`, and restricted `jobUrl` protocol to `http://` / `https://`. | Executed `npm test` (12 server tests passed including regex escaping & `jobUrl` scheme tests). |
 | 2026-10-09 | Debug frontend-to-API integration & modal state | Centralized Axios API module (`client/src/lib/api.js`), custom `useApplications` hook, and modal handlers. | Added double-quote CSV field escaping (`""`) in `csvExport.js` for fields with commas or newlines. | Verified CSV download and form submission in browser. |
-| 2026-10-09 | Review health check endpoint readiness logic | Returning HTTP 200 with status `"ok"` when connected to MongoDB. | Modified `healthRoutes.js` to return HTTP 503 Service Unavailable when MongoDB is disconnected to distinguish liveness from readiness. | Tested `GET /api/health` with active and stopped database connections. |
+| 2026-10-09 | Review health check endpoint readiness logic | Returning HTTP 200 with status `"ok"` when connected to MongoDB. | Modified `healthRoutes.js` to return HTTP 503 Service Unavailable when MongoDB is disconnected to distinguish liveness from readiness. | Tested `GET /api/health` with connected (200) and disconnected (503) database states. |
 | 2026-10-09 | Configure ESLint 9 & Vitest testing dependencies | Flat ESLint config and Vitest JSdom environment. | Installed `@testing-library/dom` peer dependency and added `globals.browser` + JSX parser settings to `eslint.config.js`. | Executed `npm run lint` and `npx vitest run` (0 errors, 6 client tests passed). |
-| 2026-10-09 | Review responsive layout & workspace scripts | Root package workspace runner scripts and Tailwind CSS layout. | Added standard workspace commands (`npm test`, `npm run lint`, `npm run build:client`) in root `package.json`. | Executed `npm test`, `npm run lint`, and `npm run build:client` from root. |
+| 2026-10-09 | Review responsive layout & workspace scripts | Root package workspace runner scripts and Tailwind CSS layout. | Added standard workspace commands (`npm test`, `npm run lint`, `npm run build:client`) in root `package.json`. | Executed `npm test`, `npm run lint`, and `npm run build:client` from root (18 total tests passed). |
