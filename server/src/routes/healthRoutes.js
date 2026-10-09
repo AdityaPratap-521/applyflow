@@ -12,14 +12,19 @@ router.get('/health', (req, res) => {
     3: 'disconnecting',
   };
 
-  res.status(200).json({
-    success: true,
-    status: 'ok',
+  const isConnected = dbState === 1;
+
+  // Liveness vs Readiness: Return 200 OK only when DB is fully connected, 503 Service Unavailable otherwise
+  const statusCode = isConnected ? 200 : 503;
+
+  res.status(statusCode).json({
+    success: isConnected,
+    status: isConnected ? 'ok' : 'degraded',
     timestamp: new Date().toISOString(),
     uptime: `${Math.floor(process.uptime())}s`,
     database: {
       status: states[dbState] || 'unknown',
-      isConnected: dbState === 1,
+      isConnected,
     },
   });
 });

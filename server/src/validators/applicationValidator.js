@@ -58,7 +58,7 @@ export const updateApplicationSchema = applicationSchema.partial();
 export const querySchema = z.object({
   page: z.coerce.number().int().positive().default(1),
   limit: z.coerce.number().int().min(1).max(100).default(10),
-  q: z.string().optional().default(''),
+  q: z.string().max(100, 'Search query cannot exceed 100 characters').optional().default(''),
   status: z.enum(['All', 'Applied', 'Interview', 'Offer', 'Rejected']).optional().default('All'),
   workMode: z.enum(['All', 'In-office', 'Remote', 'Hybrid']).optional().default('All'),
   employmentType: z.enum(['All', 'Full-time', 'Part-time', 'Contract', 'Internship']).optional().default('All'),

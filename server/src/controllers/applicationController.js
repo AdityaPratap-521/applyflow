@@ -1,5 +1,9 @@
 import { Application } from '../models/Application.js';
 
+const escapeRegex = (string) => {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+};
+
 export const getApplications = async (req, res, next) => {
   try {
     const {
@@ -16,7 +20,8 @@ export const getApplications = async (req, res, next) => {
     const filter = {};
 
     if (q.trim()) {
-      const searchRegex = new RegExp(q.trim(), 'i');
+      const sanitizedQuery = escapeRegex(q.trim());
+      const searchRegex = new RegExp(sanitizedQuery, 'i');
       filter.$or = [
         { company: searchRegex },
         { jobTitle: searchRegex },

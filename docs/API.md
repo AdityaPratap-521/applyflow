@@ -5,9 +5,9 @@ Base URL: `http://localhost:5000/api`
 ## Health Check
 
 ### `GET /api/health`
-Checks API server and database connection status.
+Checks API server readiness and database connection status.
 
-**Response `200 OK`**:
+- **Response `200 OK` (Database Connected)**:
 ```json
 {
   "success": true,
@@ -17,6 +17,20 @@ Checks API server and database connection status.
   "database": {
     "status": "connected",
     "isConnected": true
+  }
+}
+```
+
+- **Response `503 Service Unavailable` (Database Disconnected)**:
+```json
+{
+  "success": false,
+  "status": "degraded",
+  "timestamp": "2026-10-09T21:49:59.089Z",
+  "uptime": "16s",
+  "database": {
+    "status": "disconnected",
+    "isConnected": false
   }
 }
 ```

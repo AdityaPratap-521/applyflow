@@ -92,6 +92,17 @@ test('GET /api/applications lists applications with search and filters', async (
   assert.equal(filterRes.body.data[0].company, 'Apple');
 });
 
+test('GET /api/applications handles special regex characters safely without crashing', async () => {
+  await Application.create([
+    { company: 'C++ Systems Inc (US)', jobTitle: 'Senior C++ Engineer [Core]' },
+  ]);
+
+  const res = await request(app).get('/api/applications?q=C++');
+  assert.equal(res.status, 200);
+  assert.equal(res.body.data.length, 1);
+  assert.equal(res.body.data[0].company, 'C++ Systems Inc (US)');
+});
+
 test('GET /api/applications/:id handles valid and invalid ObjectIds', async () => {
   const doc = await Application.create({
     company: 'Netflix',

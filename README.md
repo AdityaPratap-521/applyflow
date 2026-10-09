@@ -236,16 +236,15 @@ curl -X POST http://localhost:5000/api/applications \
 
 ---
 
-## UI Screenshots (Placeholders)
+## UI Screenshots & Visual Guide
 
-![Dashboard Overview Placeholder](docs/screenshots/dashboard_overview.png)
-*Figure 1: Dashboard overview displaying metric cards, pipeline status badges, search filter controls, and applications table.*
+The application interface is structured as follows:
 
-![Add Application Modal Placeholder](docs/screenshots/add_application_modal.png)
-*Figure 2: Add Application modal form with date pickers, enums, URL validation, and recruiter contacts.*
+1. **Dashboard Overview**: Header with status health indicator, action buttons (Add Application, Export CSV), metric stat cards (Total, Applied, Interview, Offer, Rejected), overdue follow-up alerts, and search/filter bar.
+2. **Add / Edit Application Modal**: Input form with validation for company, job title, job URL, work mode, employment type, key dates (application date, deadline, interview date, follow-up date), recruiter contact info, and notes.
+3. **Application Detail Modal**: Summary modal presenting timeline breakdown, recruiter `mailto:` links, original job posting link, and notes.
 
-![Application Detail View Placeholder](docs/screenshots/application_detail_modal.png)
-*Figure 3: Application detailed view with key dates timeline, job link, and recruiter information.*
+> *Note: To generate visual PNG screenshots for documentation, run the application locally (`npm run dev`), capture browser screenshots of the dashboard and modal views, and save them into `docs/screenshots/`.*
 
 ---
 
@@ -292,14 +291,16 @@ git push -u origin main
 
 ---
 
-## AI Development Log
+## AI Development Tool Disclosure & Usage Log
 
-### Task Log Summary
+**Primary AI Development Tool:** Code0 (VS Code Extension) / Antigravity AI Pair Programmer
 
-| Date | Task Asked | What AI Suggested | Modifications / Corrections | Verification Method |
+### Usage Log
+
+| Date | Task Prompt Asked | What AI Tool Suggested | Developer Changes / Rejections | How Verified |
 |---|---|---|---|---|
-| 2026-10-09 | Workspace Inspection & Architecture Plan | Multi-stage implementation roadmap with server/client separation and schema definition. | Approved structure; added `mongodb-memory-server` for zero-friction test execution. | Verified folder setup and environment versions. |
-| 2026-10-09 | Express Server & Mongoose Data Model | Express app setup with Helmet, CORS restriction, Zod input validation, and Mongoose Application schema. | Added custom Zod query validator for pagination & search params. | Tested `/api/health` and verified HTTP headers. |
-| 2026-10-09 | React Dashboard & Modular UI Components | React SPA with Tailwind CSS, Axios client, custom `useApplications` hook, and modal dialogs. | Added CSV export helper with double-quote escaping for commas/newlines. | Verified component rendering & modal states. |
-| 2026-10-09 | Backend Integration & Unit Testing | Supertest suite for API endpoints and Vitest/RTL tests for React form validation. | Resolved `@testing-library/dom` peer dependency and ESLint 9 JSX flat config rules. | Ran `npm test` (9 server tests passed, 6 client tests passed). |
-| 2026-10-09 | Code Quality & Production Build | Run ESLint and Vite production bundler. | Resolved unused import warnings in React components. | Executed `npm run lint` and `npm run build` (0 errors). |
+| 2026-10-09 | Review input validation & security edge cases | Zod validation for body/query params, Helmet security headers, rate limiting, and regex escaping for search query `q`. | Added `escapeRegex()` metacharacter escaping and max 100 character limit on search query `q` to prevent ReDoS attacks. | Executed `npm test` (10 server tests passed including regex escaping test). |
+| 2026-10-09 | Debug frontend-to-API integration & modal state | Centralized Axios API module (`client/src/lib/api.js`), custom `useApplications` hook, and modal handlers. | Added double-quote CSV field escaping (`""`) in `csvExport.js` for fields with commas or newlines. | Verified CSV download and form submission in browser. |
+| 2026-10-09 | Review health check endpoint readiness logic | Returning HTTP 200 with status `"ok"` when connected to MongoDB. | Modified `healthRoutes.js` to return HTTP 503 Service Unavailable when MongoDB is disconnected to distinguish liveness from readiness. | Tested `GET /api/health` with active and stopped database connections. |
+| 2026-10-09 | Configure ESLint 9 & Vitest testing dependencies | Flat ESLint config and Vitest JSdom environment. | Installed `@testing-library/dom` peer dependency and added `globals.browser` + JSX parser settings to `eslint.config.js`. | Executed `npm run lint` and `npx vitest run` (0 errors, 6 client tests passed). |
+| 2026-10-09 | Review responsive layout & workspace scripts | Root package workspace runner scripts and Tailwind CSS layout. | Added standard workspace commands (`npm test`, `npm run lint`, `npm run build:client`) in root `package.json`. | Executed `npm test`, `npm run lint`, and `npm run build:client` from root. |
