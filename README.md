@@ -305,7 +305,10 @@ git push -u origin main
 
 ## AI Development Tool Disclosure & Usage Log
 
-**Primary AI Development Tool:** Code0 (VS Code Extension) / Antigravity AI Pair Programmer
+**AI Tool Selected for Assessment:** Google Antigravity (Gemini 3.6 Flash)
+
+> [!NOTE]
+> **Assessment Disclosure Notice**: Development for this project was conducted using Google Antigravity powered by Gemini 3.6 Flash. If your assessment evaluation requires strict usage of VS Code extensions such as Code0 or Kiro, please note the actual tool used below and verify all generated code independently.
 
 ### Usage Log
 
